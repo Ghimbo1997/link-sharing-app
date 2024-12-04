@@ -23,6 +23,7 @@
   --heading-color: #333333;
   --text-color: #737373;
 
+  --box-shadow: 0 0 32px #633cff40;
   --border-color: #d9d9d9;
   --error-color: #ff3939;
   --background-color1: #fafafa;
@@ -43,6 +44,9 @@
   --text-size-2: 12px;
   --text-line-2: 1.5;
   --text-weight-2: 400;
+
+  --button-color-1: #fff;
+  --button-color-2: #633cff;
 }
 
 a {
