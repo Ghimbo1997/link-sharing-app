@@ -1,11 +1,30 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { Heading, Button } from "./common";
+import { Button, DropdownField, Heading, Text, TextField } from "./common";
+import TwitterIcon from "./assets/twitter.svg?react";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Heading size="md">Hello world</Heading>
-    <Button variant="fill">Click Me!</Button>
+    <Heading>Hello world</Heading>
+    <Button variant="fill">Click me</Button>
+    <TextField
+      iconChildren={<TwitterIcon />}
+      isIconVisible={true}
+      errorChildren={"Link invalid"}
+      isErrorVisible={true}
+      onChange={(e) => console.log(e.target.value)}
+    />
+    <DropdownField
+      iconChildren={<TwitterIcon />}
+      isIconVisible={true}
+      options={[
+        { id: 1, value: 10, name: "Option 1" },
+        { id: 2, value: 11, name: "Option 2" },
+        { id: 3, value: 12, name: "Option 3" },
+      ]}
+      onChange={(e) => console.log(e.target.value)}
+    />
+    <Text>Hello World</Text>
   </StrictMode>
 );
