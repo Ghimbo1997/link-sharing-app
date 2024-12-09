@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import Containter from "./index.styled";
 
-const TemplatePage = (props) => {
+const AuthRegisterPage = (props) => {
   return <Containter>Our template component{props.children}</Containter>;
 };
 
-TemplatePage.propTypes = {
+AuthRegisterPage.propTypes = {
   children: PropTypes.element,
 };
-export default TemplatePage;
+export default AuthRegisterPage;

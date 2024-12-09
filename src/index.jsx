@@ -1,30 +1,28 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { Button, DropdownField, Heading, Text, TextField } from "./common";
-import TwitterIcon from "./assets/twitter.svg?react";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import AuthLoginPage from "./pages/auth-login";
+import AuthRegisterPage from "./pages/auth-register";
+
+const router = createBrowserRouter([
+  {
+    path: "/auth",
+    children: [
+      {
+        path: "/auth/login",
+        Component: AuthLoginPage,
+      },
+      {
+        path: "/auth/register",
+        Component: AuthRegisterPage,
+      },
+    ],
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Heading>Hello world</Heading>
-    <Button variant="fill">Click me</Button>
-    <TextField
-      iconChildren={<TwitterIcon />}
-      isIconVisible={true}
-      errorChildren={"Link invalid"}
-      isErrorVisible={true}
-      onChange={(e) => console.log(e.target.value)}
-    />
-    <DropdownField
-      iconChildren={<TwitterIcon />}
-      isIconVisible={true}
-      options={[
-        { id: 1, value: 10, name: "Option 1" },
-        { id: 2, value: 11, name: "Option 2" },
-        { id: 3, value: 12, name: "Option 3" },
-      ]}
-      onChange={(e) => console.log(e.target.value)}
-    />
-    <Text>Hello World</Text>
+    <RouterProvider router={router}></RouterProvider>
   </StrictMode>
 );
